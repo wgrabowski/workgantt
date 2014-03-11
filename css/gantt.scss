@@ -1,0 +1,91 @@
+@import 'variables';
+@import 'gantt-events';
+
+
+#charts{
+	width:98%;
+	margin:0 auto;
+}
+.charts{
+	width:auto;
+	float:left;
+	display: block;
+	min-height:$font-size-base;
+	background:#edede4;
+	position:relative;
+	z-index:1;
+	margin:0 1em 4em;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+	dt,dd{
+		height:$line-height;
+		line-height:$line-height;
+		float:left;
+		display: block;
+		border:1px solid transparent;
+		border-width:2px 0;
+		margin:0;
+	}
+	dt{
+		width:100px;
+		background:rgba(22,22,22,0.1);
+		clear:left;		
+		text-indent:0.5em;
+		text-transform: capitalize;
+	}
+	dd{
+		position:relative;
+		clear:right;
+		width:200px;
+		[class^=from],[class^=to]{
+			overflow:hidden;
+			position:absolute;
+			top:0;
+			height:$line-height;
+		line-height:$line-height;	
+			display: block;
+			z-index: 100;
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			border-radius: 4px;
+			text-align: center;
+		}
+	}
+	&:before{
+		content:attr(id);
+		position:absolute;
+		top:-$font-size-base*3;
+		left:0;
+		color:red;
+		font-size:$font-size-base*1.5
+
+	}
+}
+.charts:target{
+
+	width:100%;
+	z-index:3000;
+	display:block;
+	overflow:visible;
+	dd{
+		width:calc(100% - 100px)	
+	}
+}
+.charts{
+width:0%;
+display:none;
+overflow:hidden;
+}
+#charts:target .charts{
+	width:auto;
+	min-width:200px;
+	max-width:400px;
+	display:block;
+	overflow:visible;
+	.guy-time{
+		display:none
+	}
+}
