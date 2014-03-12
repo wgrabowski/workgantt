@@ -7,6 +7,9 @@
 .event-unavailable {
   background: #ff4444; }
 
+.event-available {
+  background: #669933; }
+
 .guy-time abbr {
   border: 1px solid #666;
   border-width: 0 1px 0 0;

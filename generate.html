@@ -1,56 +1,50 @@
 <!doctype html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<script>
-	days = {
-		guys:{}
-		monday:{events}
-	}
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script src="js/data.js"></script>
+		
+		<style>
+			[required]:empty {
+				border: 1px solid red;
+			}
+			ul li{margin:0.5em}
+		</style>
+	</head>
+	<body>
+		<label for="name"> name</label>
+		<input type="text" name="name" id="name" required>
+		<fieldset>
+			<legend></legend>
+			<select name="day" id="day" required>
+				<option value="monday">monday</option>
+				<option value="tuesday">tuesday</option>
+				<option value="wednesday">wednesday</option>
+				<option value="thursday">thursday</option>
+				<option value="friday">Friday</option>
 
-	add = function(){
-		var ret = [],obj = {},tmpObj = {};
-		var inputs = document.querySelectorAll("fieldset input:not(#day),fieldset select:not(#day)"),input;
-		for (var i = 0,j = inputs.length;i<j;i++){
-			input = inputs[i];
-			tmpObj[input.name] = input.value;
-			
+			</select>
+			<label for="name"> od kiedy</label>
+			<input type="number" name="from" id="start" required step="1" max="24" min="6">
+			<label for="name"> do kiedy</label>
+			<input type="number" name="to" id="stop" required step="1" max="24" min="6">
+			<label for="name"> rodzaj</label>
+			<select name="type" id="type" required>
+				<option value="work">work</option>
+				<option value="school">school</option>
+				<option value="unavailable">unavailable</option>
+				<option value="available">available</option>
+			</select>
+			<label for="name"> nazwa</label>
+			<input type="text" name="title" id="start">
+			<button type="button" onclick="add();update();">
+				add
+			</button>
 
-		}
-		console.log(inputs);
-		console.log(tmpObj);
-		return tmpObj;
-	}
-	</script>
-</head>
-<body>
-	<label for="name"> name</label><input type="text" name="name" id="name">
-	<fieldset>
-		<legend></legend>
-		<select name="day" id="day">
-			<option value="monday">monday</option>
-			<option value="tuesday">tuesday</option>
-			<option value="wednesday">wednesday</option>
-			<option value="thursday">thursday</option>
-			<option value="friday">Friday</option>
-
-			
-		</select>
-		<label for="name"> od kiedy</label><input type="time" name="from" id="start">
-				<label for="name"> do kiedy</label><input type="time" name="to" id="start">
-		<label for="name"> rodzaj</label>
-		<select name="type" id="type">
-			<option value="work">work</option>
-			<option value="school">school</option>
-			<option value="unavailable">unavailable</option>
-			<option value="available">available</option>
-		</select>
-		<label for="name"> nazwa</label><input type="text" name="title" id="start">
-		<button type="button" onclick="add();">add</button>
-
-	</fieldset>
-	
-
-</body>
+		</fieldset>
+		<textarea name="" id="" cols="30" rows="10"></textarea>
+		<fieldset id="results"></fieldset>
+		<script src="js/generate.js"></script>
+	</body>
 </html>
